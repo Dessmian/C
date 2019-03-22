@@ -5,7 +5,7 @@ Determinar:
 3- Cuantos negativos.
 4- Cuantas veces se ingreso el 0.
 5- Promedio de numeros positivos.
-6- Maximo y minimo (En que orden o lugar se ingreso).
+6- Maximo y minimo (En que orden o lugar se ingreso) (Utilizar flags).
 7- La suma de los negativos.
 8- La diferencia entre positivos y negativos.
-9- Cuantos numeros estan entre -239 y 5.  */ 
+9- Cuantos numeros estan entre -239 y 5.  */   //github.com/german2017
