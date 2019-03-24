@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1553433866 source:c:\proyects utn fra\ejerciocio1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+
