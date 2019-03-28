@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1553783642 source:d:\murray\laboratorio1clase2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1553782865 d:\murray\laboratorio1clase2\funciones.h
+
+1553782865 source:d:\murray\laboratorio1clase2\biblioteca.c
+
