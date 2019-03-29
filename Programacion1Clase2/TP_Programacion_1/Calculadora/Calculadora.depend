@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1553872053 source:d:\demian murray\programacion1clase2\tp_programacion_1\calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Calculadora_Biblioteca.h"
+
+1553871258 d:\demian murray\programacion1clase2\tp_programacion_1\calculadora\calculadora_biblioteca.h
+
+1553872234 source:d:\demian murray\programacion1clase2\tp_programacion_1\calculadora\calculadora_funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"Calculadora_Biblioteca.h"
+
