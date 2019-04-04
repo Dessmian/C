@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "funciones.h"
+void mostrarVector ( char datos [] [10] , int tamanio ) ;
+void cargarVector ( char datos [] [10] , int tamanio ) ;
 int main()
 {
 
@@ -10,7 +12,35 @@ int main()
     int i ;
     int j ;
     int resultado ;
+    char usuario [20] ;
+    mostrarVector ( nombre , 4 ) ;
+    cargarVector ( nombre , 4 ) ;
+    mostrarVector ( nombre , 4 ) ;
 
+
+    //printf ( "Ingrese usuario:  " ) ;
+    //gets ( usuario ) ;
+    //printf ( "%s" , usuario ) ;
+
+    return 0;
+}
+void mostrarVector ( char datos [] [10] , int tamanio )
+{
+    int i ;
+    for ( i = 0 ; i < tamanio ; i++ )
+    {
+        printf ( "nota: %s  \n" , datos [i] ) ;
+    }
+}
+void cargarVector ( char datos [] [10] , int tamanio )
+{
+    int i ;
+    for ( i = 0 ; i < tamanio ; i++ )
+    {
+        strcpy ( datos [i] , "\0" ) ;
+    }
+}
+    /*
     resultado = strcmp ( "hola" , "hola" ) ;
     printf ( "minusculas %d\n" , resultado ) ;
     resultado = strcmp ( "Hola" , "hola" ) ;
@@ -18,10 +48,9 @@ int main()
     resultado = strcmp ( "hola" , "Hola" ) ;
     printf ( "segunda %d\n" , resultado ) ;
     resultado = strcmp ( "Hola" , "Hola" ) ;
-    printf ( "mayusculas %d\n" , resultado ) ;
+    printf ( "mayusculas %d\n" , resultado ) ;*/
 
-
-    for ( i = 0 ; i < 4 ; i++ )
+    /*for ( i = 0 ; i < 4 ; i++ )
     {
         for ( j = 0 ; j < 4 ; j++ )
         {
@@ -44,7 +73,7 @@ int main()
     {
         printf ( "alumno: %s nota: %d \n", nombre [i] , nota [i] ) ;
         //printf ( "nota : %d  \n", nota [i] ) ;
-    }
+    }*/
     //ordenar en paralelo por numero
     /*for ( i = 0 ; i < 4 ; i++ )
     {
@@ -177,6 +206,4 @@ int main()
     printf ( "%d" , unFactor ) ;
     printf ( "%d" , resultado ) ;*/
 
-    return 0;
-}
 
