@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define TAM 5
+
+/*hacer un programa que guarde el nombre y el apellido de un usuario, sin cambiarlo. mostrar por panatala apellido, nombre */
 void mostrarArray ( int [], int ) ;
 void cargarArrayEnteros ( int [], int ) ;
 int buscarValor ( int [], int, int ) ;
