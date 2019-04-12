@@ -43,6 +43,10 @@ int getStringLetras ( char mensaje [] , char input [] )
                 return 0 ;
             }
         }
+        if ( arrayAuxiliar [ i ] == ' ' )
+        {
+
+        }
     }
     return -1 ;
 }
