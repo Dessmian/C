@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1556199819 source:d:\demian murray\c\semana_5\semana_5_productos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"producs.h"
+
+1556199666 d:\demian murray\c\semana_5\semana_5_productos\producs.h
+
+1556199666 source:d:\demian murray\c\semana_5\semana_5_productos\products.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"producs.h"
+
