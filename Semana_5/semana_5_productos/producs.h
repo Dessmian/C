@@ -18,6 +18,6 @@ void showArray ( sProduct [] , int ) ;
 void buildArray ( sProduct [] , int ) ;
 int insertProduct ( sProduct , sProduct[] ) ;
 int getFreeSpace ( sProduct [] ) ;
-int itExist ( sProduct , sProduct[] ) ;
-int eliminateProduct ( sProduct , sProduct[] ) ;
+int itExist ( sProduct , sProduct[] , int ) ;
+int eliminateProduct ( sProduct , sProduct[] , int ) ;
 int editProduct ( sProduct , sProduct[] ) ;

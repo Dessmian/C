@@ -1,0 +1,6 @@
+#ifndef GETDATA_H_INCLUDED
+#define GETDATA_H_INCLUDED
+
+
+
+#endif // GETDATA_H_INCLUDED

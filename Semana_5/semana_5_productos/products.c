@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include "producs.h"
+#include "getData.h"
 sProduct createProduct ()
 {
+    //USAR FUNCIONES!!
     sProduct returningValue  ;
     fflush  ( stdin )  ;
     printf  ( "Ingrese el nombre del producto:  \n" )  ;
@@ -21,6 +23,7 @@ sProduct createProduct ()
     printf  ( "Ingrese el ombre del proveedor:  \n" )  ;
     gets  ( returningValue.provider )  ;
     fflush  ( stdin )  ;
+    returningValue.state = 1 ;
 
 
     return returningValue  ;
@@ -35,7 +38,7 @@ void showProduct ( sProduct incomingProduct )
     printf  ( "Proveedor: \t\t %s \n", incomingProduct.provider )  ;
     printf  ( "Precio: \t\t %f \n", incomingProduct.price )  ;
 }
-void fillArray ( sProduct productList [] , int arraySize )
+void fillProductArray ( sProduct productList [] , int arraySize )
 {
     int i ;
     for ( i = 0 ; i < arraySize ; i++ )
@@ -45,7 +48,7 @@ void fillArray ( sProduct productList [] , int arraySize )
         system ( "cls" ) ;
     }
 }
-void showArray ( sProduct productList [] , int arraySize )
+void showProductsArray ( sProduct productList [] , int arraySize )
 {
     int i ;
     for ( i = 0 ; i < arraySize ; i++ )
@@ -53,7 +56,7 @@ void showArray ( sProduct productList [] , int arraySize )
         showProduct ( productList[i] ) ;
     }
 }
-void buildArray ( sProduct productList [] , int arraySize )
+void buildProductArray ( sProduct productList [] , int arraySize )
 {
     int i ;
     for ( i = 0 ; i < arraySize ; i++ )
@@ -66,11 +69,11 @@ void buildArray ( sProduct productList [] , int arraySize )
         strcpy(productList[i].provider , "" ) ;
     }
 }
-int insertProduct ( sProduct incomingProduct , sProduct incomingList [] )
+int insertProduct ( sProduct incomingProduct , sProduct incomingList [] , int listSize )
 {
     int index ;
     int returningValue = 0 ;
-    index = getFreeSpace ( incomingList ) ;
+    index = getFreeSpace ( incomingList , listSize ) ;
     if ( index != -1 )
     {
         incomingList[index] = incomingProduct ;
@@ -84,7 +87,7 @@ int getFreeSpace ( sProduct productList [] , int arraySize )
     int returnungValue = -1 ;
     for ( i = 0 ; i < arraySize ; i++ )
     {
-        if ( productList[i].state != 1 )
+        if ( productList[i].state == 0 )
         {
             returnungValue = i ;
         }
@@ -104,8 +107,16 @@ int itExist ( sProduct incomingProduct , sProduct productList [] , int listSize 
     }
     return returningValue ;
 }
-int eliminateProduct ( sProduct , sProduct[] )
+int eliminateProduct ( sProduct incomingProduct , sProduct productList [] , int listSize )
 {
-
+    int index ;
+    int returningValue = 0 ;
+    index = itExist( incomingProduct , productList , listSize ) ;
+    if ( index != -1 )
+    {
+        productList[i].state = -1 ;
+        returningValue = 1 ;
+    }
+    return returningValue ;
 }
 int editProduct ( sProduct , sProduct[] ) ;
