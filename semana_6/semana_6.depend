@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1556806959 source:d:\demian murray\c\semana 6\semana_6\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"semana_6.h"
+
+1556808325 d:\demian murray\c\semana 6\semana_6\semana_6.h
+
+1556808893 source:d:\demian murray\c\semana 6\semana_6\semana_6.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"semana_6.h"
+
