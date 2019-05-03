@@ -24,17 +24,20 @@
 
     return returningValue  ;
 }*/
-void showProduct ( sProduct data , char* provider )
+void showProductAndProvider ( sProduct product , char* provider )
 {
     int len ;
-    len = strlen ( data.name ) ;
-    if ( len > 11 )
+    len = strlen ( product.name ) ;
+    if ( product.state == 1 )
     {
-        printf ( "|  %s  | %s \t| %s\t| %f | %s\t|\n" , data.barCode , data.name , data.exprationDate , data.price , provider ) ;
-    }
-    else
-    {
-        printf ( "|  %s  | %s\t\t| %s\t| %f | %s\t|\n" , data.barCode , data.name , data.exprationDate , data.price , provider ) ;
+        if ( len > 11 )
+        {
+            printf ( "|  %s  | %s \t| %s\t| %f | %s\t|\n" , product.barCode , product.name , product.exprationDate , product.price , provider ) ;
+        }
+        else
+        {
+            printf ( "|  %s  | %s\t\t| %s\t| %f | %s\t|\n" , product.barCode , product.name , product.exprationDate , product.price , provider ) ;
+        }
     }
 }
 /*void fillProductArray ( sProduct productList [] , int arraySize )
@@ -51,17 +54,20 @@ void showProductsArray ( sProduct productList[] , sProvider providerList[] , int
 {
     int i ;
     int id;
-    char provider [51] ;
+    char provider [51] = " " ;
     printf ( " _______________________________________________________________________\n" ) ;
     printf ( "| Codigo |   Producto\t\t|  Vencimiento  | Precio    | Proveedor |\n" ) ;
-    printf ( " _______________________________________________________________________\n" ) ;
+    printf ( " -----------------------------------------------------------------------\n" ) ;
     for ( i = 0 ; i < productSize ; i++ )
     {
-        id = productList[i].idProvider ;
-        strcpy ( provider , getProvider( providerList , id , providerSize ) ) ;
-        showProduct ( productList[i] , provider ) ;
+        if ( productList[i].state == 1 )
+        {
+            id = productList[i].idProvider ;
+            getProvider( providerList , id , providerSize , provider ) ;
+            showProductAndProvider ( productList[i] , provider ) ;
+        }
     }
-    printf ( " _______________________________________________________________________" ) ;
+    printf ( " -----------------------------------------------------------------------\n" ) ;
     showProviders( providerList , providerSize ) ;
 }
 /*void buildProductArray ( sProduct productList [] , int arraySize )
@@ -161,12 +167,12 @@ void createTestProvider ( sProvider* prov )
         strcpy ( prov[i].cuit , cuit[i] ) ;
         strcpy ( prov[i].location , location[i] ) ;
         strcpy ( prov[i].owner , owner[i] ) ;
+        prov[i].state = 1 ;
     }
 }
-char* getProvider ( sProvider list[] , int identification , int len )
+void getProvider ( sProvider list[] , int identification , int len , char* providerName )
 {
     int i ;
-    char providerName [51] = " " ;
     for ( i = 0 ; i < len ; i++ )
     {
         if ( list[i].id == identification )
@@ -175,19 +181,21 @@ char* getProvider ( sProvider list[] , int identification , int len )
             break;
         }
     }
-    return providerName ;
 }
 void showProviders ( sProvider* list , int len )
 {
     int i ;
     printf ( "\n _______________________________________________________\n" ) ;
     printf ( "|  Dueño  |  Descripcion  |  ID  |   Ubucacion\t| Cuit\t|\n" ) ;
-    printf ( " _______________________________________________________\n" ) ;
+    printf ( " -------------------------------------------------------\n" ) ;
     for ( i = 0 ; i < len ; i++ )
     {
+        if ( list[i].state )
+        {
         printProviider ( list[i] ) ;
+        }
     }
-    printf ( " _______________________________________________________\n" ) ;
+    printf ( " -------------------------------------------------------\n" ) ;
 }
 void printProviider ( sProvider data )
 {
@@ -196,8 +204,57 @@ void printProviider ( sProvider data )
 void printProvidersAndProducts ( sProduct* productList , sProvider* providerList , int productLen , int providerLen  )
 {
     int i ;
-    for ( i = 0 ; i < productLen ; i++ )
+    int j ;
+    for ( i = 0 ; i < providerLen ; i++ )
     {
-
+        if ( providerList[i].state )
+        {
+            prProvHeader();
+            printProviider( providerList[i] ) ;
+            printf ( " -------------------------------------------------------\n" ) ;
+            prodHeaderNoProv();
+            for ( j = 0 ; j < productLen ; j++ )
+            {
+                if ( providerList[i].id == productList[j].idProvider )
+                {
+                    showProduct( productList[j] ) ;
+                }
+            }
+            printf ( " -----------------------------------------------------------\n" ) ;
+        }
     }
+}
+void prProvHeader ()
+{
+    printf ( "\n _______________________________________________________\n" ) ;
+    printf ( "|  Dueño  |  Descripcion  |  ID  |   Ubucacion\t| Cuit\t|\n" ) ;
+    printf ( " -------------------------------------------------------\n" ) ;
+}
+void prodHeader ()
+{
+    printf ( " _______________________________________________________________________\n" ) ;
+    printf ( "| Codigo |   Producto\t\t|  Vencimiento  | Precio    | Proveedor |\n" ) ;
+    printf ( " --------------------------------------------------\n" ) ;
+}
+void showProduct ( sProduct product )
+{
+    int len ;
+    if ( product.state )
+    {
+        len = strlen ( product.name ) ;
+        if ( len > 11 )
+        {
+            printf ( "|  %s  | %s \t| %s\t| %f |\n" , product.barCode , product.name , product.exprationDate , product.price ) ;
+        }
+        else
+        {
+            printf ( "|  %s  | %s\t\t| %s\t| %f |\n" , product.barCode , product.name , product.exprationDate , product.price ) ;
+        }
+    }
+}
+void prodHeaderNoProv ()
+{
+    printf ( " ___________________________________________________________\n" ) ;
+    printf ( "| Codigo |   Producto\t\t|  Vencimiento  | Precio    |\n" ) ;
+    printf ( " -----------------------------------------------------------\n" ) ;
 }
