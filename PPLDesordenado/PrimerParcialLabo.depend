@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1557977222 source:c:\users\screw\desktop\primerparciallabo\primerparciallabo\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
